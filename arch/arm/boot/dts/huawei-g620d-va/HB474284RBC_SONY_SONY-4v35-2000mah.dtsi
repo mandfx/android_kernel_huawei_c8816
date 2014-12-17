@@ -1,0 +1,123 @@
+/* modfy name of the battery data to avoid conflict ,solve the problem unkonw byd battery*/
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+qcom,qrd-4v35-2000mAh-sony-sony-data {
+	qcom,fcc-mah = <2000>;
+	qcom,default-rbatt-mohm = <158>;
+	qcom,rbatt-capacitive-mohm = <0>;
+	qcom,flat-ocv-threshold-uv = <3800000>;
+	qcom,max-voltage-uv = <4350000>;
+	qcom,v-cutoff-uv = <3400000>;
+	qcom,chg-term-ua = <100000>;
+	qcom,batt-id-kohm = <110>;
+	qcom,batt-name = "HB474284RBC_SONY_SONY";
+
+	qcom,warm-bat-decidegc = <420>;
+	qcom,warm-bat-mv = <4250>;
+	qcom,ibatmax-warm-ma = <800>;
+
+	qcom,cool-bat-decidegc = <100>;
+	qcom,cool-bat-mv = <4350>;
+	qcom,ibatmax-cool-ma = <600>;
+
+	qcom,hot-bat-decidegc = <520>;
+	qcom,cold-bat-decidegc = <0>;
+	qcom,rbatt-sf-lut {
+		qcom,lut-col-legend = <(-20) 0 25 40 60>;
+		qcom,lut-row-legend = <100 95 90 85 80>,
+				<75 70 65 60 55>,
+				<50 45 40 35 30>,
+				<25 20 16 13 11>,
+				<10 9 8 7 6>,
+				<5 4 3 2 1>,
+				<0>;
+		qcom,lut-data = <1170 273 100 79 71>,
+				<1065 273 105 82 73>,
+				<1067 280 105 82 73>,
+				<1050 282 110 86 75>,
+				<1043 281 115 89 77>,
+				<1043 281 120 93 79>,
+				<1049 279 124 98 82>,
+				<1062 281 115 100 85>,
+				<1076 284 105 89 79>,
+				<1103 287 104 83 74>,
+				<1131 293 106 84 75>,
+				<1170 299 109 86 75>,
+				<1213 305 113 89 77>,
+				<1269 313 116 92 81>,
+				<1347 324 115 89 75>,
+				<1455 337 110 86 75>,
+				<1613 355 110 86 76>,
+				<1832 382 111 86 76>,
+				<2089 416 108 84 75>,
+				<2241 398 112 86 76>,
+				<2254 418 113 87 77>,
+				<1961 445 116 88 77>,
+				<2280 482 118 89 78>,
+				<2718 525 118 89 78>,
+				<3385 574 115 87 76>,
+				<4400 641 116 87 77>,
+				<6034 737 119 89 78>,
+				<8931 887 124 91 80>,
+				<14268 1109 133 96 86>,
+				<24737 1925 410 124 105>,
+				<46627 9506 9490 4034 788>;
+	};
+
+	qcom,fcc-temp-lut {
+		qcom,lut-col-legend = <(-20) 0 25 40 60>;
+		qcom,lut-data = <1980 2037 2001 1991 1980>;
+	};
+
+	qcom,pc-temp-ocv-lut {
+		qcom,lut-col-legend = <(-20) 0 25 40 60>;
+		qcom,lut-row-legend = <100 95 90 85 80>,
+				<75 70 65 60 55>,
+				<50 45 40 35 30>,
+				<25 20 16 13 11>,
+				<10 9 8 7 6>,
+				<5 4 3 2 1>,
+				<0>;
+		qcom,lut-data = <4308 4321 4302 4301 4295>,
+				<4221 4246 4239 4237 4234>,
+				<4151 4185 4184 4182 4179>,
+				<4088 4126 4130 4130 4127>,
+				<4031 4069 4080 4080 4078>,
+				<3979 4016 4033 4034 4033>,
+				<3933 3967 3988 3992 3991>,
+				<3891 3924 3941 3950 3951>,
+				<3855 3886 3898 3904 3905>,
+				<3825 3853 3866 3868 3869>,
+				<3799 3825 3839 3842 3842>,
+				<3778 3801 3817 3820 3819>,
+				<3760 3782 3798 3802 3801>,
+				<3744 3766 3782 3785 3785>,
+				<3727 3752 3765 3765 3756>,
+				<3710 3737 3745 3741 3730>,
+				<3691 3715 3725 3721 3708>,
+				<3671 3692 3703 3700 3687>,
+				<3651 3676 3682 3679 3670>,
+				<3634 3665 3675 3673 3662>,
+				<3625 3659 3672 3671 3660>,
+				<3615 3652 3668 3667 3656>,
+				<3602 3644 3661 3662 3651>,
+				<3584 3634 3646 3651 3638>,
+				<3562 3615 3616 3625 3608>,
+				<3535 3584 3572 3586 3567>,
+				<3497 3537 3517 3536 3517>,
+				<3445 3474 3446 3472 3453>,
+				<3371 3386 3346 3386 3370>,
+				<3252 3241 3189 3257 3244>,
+				<3000 3000 3000 3000 3000>;
+	};
+};

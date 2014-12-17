@@ -1,0 +1,90 @@
+/*Add synaptics new driver "Synaptics DSX I2C V2.0"*/
+&soc{
+	i2c@f9923000{
+		status = "ok";
+		synaptics_dsx_i2c@70 {
+			compatible = "synaptics,dsx";
+			reg = <0x70>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			synaptics,vdd = "vdd";
+			synaptics,vbus = "vcc_i2c";
+			synaptics,reset-gpio = <&msmgpio 0 0x00>;
+			synaptics,irq-gpio = <&msmgpio 1 0x00>;
+			
+			synaptics,lcd-x = <720>;
+			synaptics,lcd-y = <1280>;
+			synaptics,lcd-all = <1369>;
+			synaptics,virtual_keys = /* KeyCode CenterX CenterY Width Height */
+				/* KEY_BACK */
+				<158 142 1342 150 100
+				/* KEY_HOME(102) */
+				102 360 1342 150 100
+				/* KEY_MENU */
+				139 578 1342 150 100>;
+
+			/* SYNAPTICS_WAKE_UP_GESTURE_FLAG:'1'->enabled,'0'->disabled */
+			synaptics,gesture_enabled = <0>;
+			/* Gestures that supported:                           */
+			/* bit0  Double tap                                        */
+			/* bit1  Single finger slide from left to right     */
+			/* bit2  Single finger slide from right to left     */
+			/* bit3  Single finger slide from top to bottom  */
+			/* bit4  Single finger slide from bottom to top  */
+			/* bit5  Double finger slide from top to bottom */
+			/* bit6  Single finger slide circle                     */
+			/* bit7  Single finger write letter c                  */
+			/* bit8  Single finger write letter e                  */
+			/* bit9  Single finger write letter m                 */
+			/* bit10 Single finger write letter w                 */
+			/* bit11 Palm off screen                                */
+			synaptics,easy_wakeup_supported_gestures = <0xFFF>;
+
+			/*Defination of report key value  for different gestures*/
+			synaptics,easy_wakeup_gesture_keys = 
+			<	59 /*0.Double tap:KEY_F1*/
+				60 /*1.Single finger slide from left to right*/
+				61 /*2.Single finger slide from right to left:KEY_F3*/
+				62 /*3.Single finger slide from top to bottom*/
+				63 /*4.Single finger slide from bottom to top:KEY_F5*/
+				64 /*5.Double finger slide from top to bottom*/
+				65 /*6.Single finger slide circle:KEY_F7*/
+				66 /*7.Single finger write letter c*/
+				67 /*8.Single finger write letter e:KEY_F9*/
+				68 /*9.Single finger write letter m*/
+				87 /*10.Single finger write letter w:KEY_F11*/
+				88 /*11.Palm off screen*/
+			>;
+
+			/* SYNAPTICS_GLOVE_FUNCTION_FLAG:'1'->enabled,'0'->disabled*/
+			synaptics,glove_enabled = <0>;
+			synaptics,reset-on-status = <0>;
+			synaptics,power-delay-ms = <160>;
+			synaptics,reset-delay-ms = <50>;
+			synaptics,reset-active-ms = <90>;
+			/*Use to combine fw name*/
+			synaptics,product_name = "g630";
+		};
+	};
+	/*Add goodix new driver "gt9xx V1.8"*/
+	i2c@f9923000 {
+		status = "ok";
+		Goodix-TS@5d {
+			compatible = "goodix,Goodix-TS";
+			reg = <0x5d>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+		
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+
+			goodix,vdd = "vdd";
+			goodix,vbus = "vcc_i2c";
+			goodix,reset-gpio = <0>;
+			goodix,irq-gpio = <1>;
+		};
+	};
+};
+

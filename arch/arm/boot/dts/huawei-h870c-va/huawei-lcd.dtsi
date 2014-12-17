@@ -1,0 +1,5 @@
+/* add ili9806c-tianma lcd for h870 */
+
+/include/ "tianma-ili9806c-4-wvga-video.dtsi"
+/include/ "default-lcd.dtsi"
+

@@ -1,0 +1,20 @@
+
+/* This is a dtsi file for h871-g TP device */
+&soc {
+	i2c@f9923000{
+		tsc@1a {
+			compatible = "cy,ft6x06_i2c_adapter";
+			reg = <0x38>;
+			/* GPIO 38, high-to-low edge triggered */
+			interrupts = <1 0x2>;
+			interrupt-parent = <&msmgpio>;
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+		cy,adapter_id = "ft6x06_i2c_adapter";
+		cy,vdd = "vdd";
+		cy,vbus = "vcc_i2c";
+		cy,irq_gpio_num = <1>;
+		cy,tp_reset_num = <0>;
+		};
+	};
+};

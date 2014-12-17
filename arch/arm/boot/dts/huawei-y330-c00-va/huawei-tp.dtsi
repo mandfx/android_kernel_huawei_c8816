@@ -1,0 +1,49 @@
+
+&soc {
+	i2c@f9923000{
+	
+		ft@38{
+			compatible = "ft6x06,ft6x06_i2c_adapter";
+			reg = <0x38>;
+			interrupts = <1 0x2>;
+			interrupt-parent = <&msmgpio>;
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			ft6x06,adapter_id = "ft6x06_i2c_adapter";
+			ft6x06,vdd = "vdd";
+			ft6x06,vbus = "vcc_i2c";
+			ft6x06,irq_gpio_num = <1>;
+			ft6x06,tp_reset_num = <0>;
+			ft6x06,tp_x_max = <480>;
+			ft6x06,tp_y_max = <800>;
+			/* KeyCode CenterX CenterY Widght */
+			ft6x06,virtual_keys_name = "ft6x06_i2c_adapter";
+			ft6x06,virtual_keys = /* KeyCode CenterX CenterY Width Height */
+				/* KEY_BACK */
+				<158 59 900 80 62
+				/* KEY_HOME(102) */
+				102 240 900 80 62 
+				/* KEY_MENU */
+				139 421 900 80 62>;
+		};
+		
+		ms-msg21xx@26 {
+			compatible = "mstar,ms-msg21xx";
+			reg = <0x26>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			
+			mstar,reset-gpio = <&msmgpio 0 0x00>;
+			mstar,irq-gpio = <&msmgpio 1 0x00>;
+			mstar,panel-coords = <0  0 480 900>;
+			mstar,display-coords = <0 0 480 800>;
+			mstar,i2c-pull-up;
+			/* KeyCode CenterX CenterY */
+			mstar,virtual_keys_1 = <158 80 900>;	/*back*/
+			mstar,virtual_keys_2 = <102 240 900>;/*home*/
+			mstar,virtual_keys_3 = <139 400 900>;/*menu*/
+		};
+	};
+};
